@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body id="purpleBackground">
+        <img src="logo.png" class="center">
+        <div class="tab">
+            <button class="tablinks" onclick="location.href = '/';">Home</button>
+            <button class="tablinks" onclick="location.href = '/getadddoctor';">Add Doctor</button>
+            <button class="tablinks" onclick="location.href = '/getaddpatient';">Add Patient</button>
+            <button class="tablinks" onclick="location.href = '/getalldoctors';">List Doctors</button>
+            <button class="tablinks" onclick="location.href = '/getallpatients';">List Patients</button>
+            <button class="tablinks" onclick="location.href = '/deletebyname';">Delete Patient</button>
+            <button class="tablinks" onclick="location.href = '/updatedoctor';">Update Doctor</button>
+        </div>
+        
+        <h1>
+            <h2>
+                Enter new Patient: 
+            </h2>
+            <div class="container">
+                <form action="postnewpatient" method="POST">
+                    <h3>Information</h3>
+                    <lable>Full Name*</lable>
+                    <input type="text" name="fullName" /> <br>
+                    <lable>DoctorID</lable>
+                    <input type="text" name="doctorId" /> <br>
+                    <label>Age</label>
+                    <input type="number" name="age" /> <br><br>
+                    <label>Date of Visit</label> 
+                    <input type="date" name="dateOfVisit"/> <br>
+                    <label>Case Description</label> 
+                    <input type="text" name="caseDesc"/> <br>
+                    <i>The '*' fields are required</i><br>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </h1>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body id="purpleBackground">
+        <img src="logo.png" class="center">
+        <div class="tab">
+            <button class="tablinks" onclick="location.href = '/';">Home</button>
+            <button class="tablinks" onclick="location.href = '/getadddoctor';">Add Doctor</button>
+            <button class="tablinks" onclick="location.href = '/getaddpatient';">Add Patient</button>
+            <button class="tablinks" onclick="location.href = '/getalldoctors';">List Doctors</button>
+            <button class="tablinks" onclick="location.href = '/getallpatients';">List Patients</button>
+            <button class="tablinks" onclick="location.href = '/deletebyname';">Delete Patient</button>
+            <button class="tablinks" onclick="location.href = '/updatedoctor';">Update Doctor</button>
+        </div>
+        <h1>
+            <table id="t01">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                    <th>State</th>
+                    <th>Suburb</th>
+                    <th>Street</th>
+                    <th>Unit</th>
+                    <th>Number of Patients</th>
+                    <th>ID</th>
+                </tr>
+                <% for(let i=0; i<doctors.length;i++) { %>
+                    <tr>
+                        <td><%= doctors[i].fullName.firstName %></td>
+                        <td><%= doctors[i].fullName.lastName %></td>
+                        <td><%= doctors[i].dob.toLocaleDateString() %></td>
+                        <td><%= doctors[i].address.state %></td>
+                        <td><%= doctors[i].address.suburb %></td>
+                        <td><%= doctors[i].address.street %></td>
+                        <td><%= doctors[i].address.unit %></td>
+                        <td><%= doctors[i].numPatients %></td>
+                        <td><%= doctors[i]._id %></td>
+                    </tr>
+                <%} %>
+            </table>
+        </h1>
+    </body>
+</html>

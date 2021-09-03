@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body id="purpleBackground">
+        <img src="logo.png" class="center">
+        <div class="tab">
+            <button class="tablinks" onclick="location.href = '/';">Home</button>
+            <button class="tablinks" onclick="location.href = '/getadddoctor';">Add Doctor</button>
+            <button class="tablinks" onclick="location.href = '/getaddpatient';">Add Patient</button>
+            <button class="tablinks" onclick="location.href = '/getalldoctors';">List Doctors</button>
+            <button class="tablinks" onclick="location.href = '/getallpatients';">List Patients</button>
+            <button class="tablinks" onclick="location.href = '/deletebyname';">Delete Patient</button>
+            <button class="tablinks" onclick="location.href = '/updatedoctor';">Update Doctor</button>
+        </div>
+        <h1>
+            <h2>
+                Enter Patient to Delete: 
+            </h2>
+            <div class="container">
+                <form action="deletebyname" method="POST">
+                    <label>Full Name</label>
+                    <input type="text" name="fullName" /> <br>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </h1>
+    </body>
+</html>
