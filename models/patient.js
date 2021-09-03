@@ -10,7 +10,8 @@ let patientSchema = mongoose.Schema({
     },
 
     doctor: {
-        type: mongoose.Schema.Types.ObjectId
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Doctor'
     },
 
     age: {

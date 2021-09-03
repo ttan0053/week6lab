@@ -52,12 +52,17 @@ app.get("/getaddpatient", function(req,res) {
 
 //list all patient
 app.get("/getallpatients", function(req,res) {
-    Patient.find({}, function (err, data) {
-        if(err) throw err;
-        Doctor.find({}, function (err, docs) {
-            res.render("allpatients", {patients: data, doctors: docs});
-        })
+    Patient.find({}).populate('doctor').exec(function (err, data) {
+        console.log(data[0].doctor.fullName);
+        res.render("allpatients", {patients: data});
     });
+
+    // Patient.find({}, function (err, data) {
+    //     if(err) throw err;
+    //     Doctor.find({}, function (err, docs) {
+    //         res.render("allpatients", {patients: data, doctors: docs});
+    //     })
+    // });
 });
 
 //delete 
@@ -123,6 +128,7 @@ app.post("/postnewpatient", function(req, res) {
         dateOfVisit: req.body.dateOfVisit,
         caseDesc: req.body.caseDesc
     });
+
 
     //update doctor patients
     Doctor.findByIdAndUpdate(newPatient.doctor, {$inc: {numPatients: 1}}, function (err, data) {

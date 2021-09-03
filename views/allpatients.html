@@ -30,8 +30,8 @@
                         <td><%= patients[i].fullName %></td>
                         <td><%= patients[i].age %></td>
                         <td><%= patients[i].dateOfVisit.toLocaleDateString() %></td>
-                        <td><%= doctors[i].fullName.firstName %></td>
-                        <td><%= doctors[i].fullName.lastName %></td>
+                        <td><%= patients[i].doctor.fullName.firstName %></td>
+                        <td><%= patients[i].doctor.fullName.lastName %></td>
                         <td><%= patients[i].caseDesc %></td>
                     </tr>
                 <%} %>
