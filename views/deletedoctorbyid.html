@@ -15,25 +15,14 @@
             <button class="tablinks" onclick="location.href = '/updatedoctor';">Update Doctor</button>
             <button class="tablinks" onclick="location.href = '/deletedocbyid';">Delete Doctor By ID</button>
         </div>
-        
         <h1>
             <h2>
-                Enter new Patient: 
+                Enter Patient to Delete: 
             </h2>
             <div class="container">
-                <form action="postnewpatient" method="POST">
-                    <h3>Information</h3>
-                    <lable>Full Name*</lable>
-                    <input type="text" name="fullName" /> <br>
-                    <lable>DoctorID</lable>
-                    <input type="text" name="doctorId" /> <br>
-                    <label>Age</label>
-                    <input type="number" name="age" /> <br><br>
-                    <label>Date of Visit</label> 
-                    <input type="date" name="dateOfVisit"/> <br>
-                    <label>Case Description</label> 
-                    <input type="text" name="caseDesc"/> <br>
-                    <i>The '*' fields are required</i><br>
+                <form action="deletedocbyid" method="POST">
+                    <label>Doctor ID</label>
+                    <input type="text" name="docId" /> <br>
                     <button>Submit</button>
                 </form>
             </div>

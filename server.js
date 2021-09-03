@@ -54,18 +54,21 @@ app.get("/getaddpatient", function(req,res) {
 app.get("/getallpatients", function(req,res) {
     Patient.find({}, function (err, data) {
         if(err) throw err;
-        for (let i = 0; i<data.length;i++) {
-            Doctor.find({}, function (err, docs) {
-                res.render("allpatients", {patients: data, doctors: docs});
-            })
-        }
+        Doctor.find({}, function (err, docs) {
+            res.render("allpatients", {patients: data, doctors: docs});
+        })
     });
-    //res.render("allpatients", {Doctor: Doctor});
 });
 
 //delete 
 app.get("/deletebyname", function (req, res) {
     let fileName = viewsPath + "deletebyname.html";
+    res.sendFile(fileName)
+});
+
+//delete doc by id
+app.get("/deletedocbyid", function (req, res) {
+    let fileName = viewsPath + "deletedoctorbyid.html";
     res.sendFile(fileName)
 });
 
@@ -142,6 +145,18 @@ app.post("/deletebyname", function (req, res) {
     Patient.deleteMany({'fullName': req.body.fullName}, function (err, doc) {
         console.log(doc);
     });
+    res.redirect("/getalldoctors");
+});
+
+//delete doctor
+app.post("/deletedocbyid", function (req, res) {
+    Doctor.findByIdAndDelete(req.body.docId, function (err, docs) {
+        if (err) throw err;
+    })   
+    Patient.deleteMany({'doctor': req.body.docId}, function (err, doc) {
+        if (err) throw err;
+        console.log(doc);
+    }); 
     res.redirect("/getallpatients");
 });
 
